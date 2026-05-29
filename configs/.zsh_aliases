@@ -1,0 +1,146 @@
+# Zsh Aliases
+alias c='clear'
+alias h='history'
+alias hg='history | rg $1'
+alias al="echo ------------Your curent aliases are:------------\n| bat ~/.zsh_aliases"
+
+# System Management
+alias bye='sync && shutdown -P now'
+alias byet='sync && shutdown -P $1'
+alias byecan='shutdown -c'
+alias rstrt='sync && shutdown -r now'
+alias rstrti='syn && shutdown -r $1'
+alias logout='sync && pkill -u $USER'
+alias iad='systemctl is-active docker'
+alias ports='nmap localhost'
+alias dns="sudo systemd-resolve --status | grep 'DNS Servers'"
+alias exp='nautilus .'
+alias std="stat -c '%y - %n' * | sort -r -t'-' -k1,1"
+
+# File and Folder Operations
+alias tree="lsd --tree"
+alias ls="lsd"
+alias ll='ls -la'
+alias lf='ls -alF'
+alias la='ls -A'
+alias lt='ls --human-readable --size -1 -S --classify'
+alias lh='ls -ahlt'
+alias lu='du -sh * | sort -h'
+alias lc='find . -type f | wc -l'
+alias ld='ls -d */'
+alias fh='find . -name '
+alias ..='cd ..'
+alias ....='cd ../..'
+alias 1d="cd .."
+alias 2d="cd ..;cd .."
+alias 3d="cd ..;cd ..;cd .."
+alias 4d="cd ..;cd ..;cd ..;cd .."
+alias 5d="cd ..;cd ..;cd ..;cd ..;cd .."
+alias untar='tar -zxvf $1'
+alias tar='tar -czvf $1'
+
+# Git Related Aliases
+alias gs='git status'
+alias gb='git branch'
+alias gr='git remote -v'
+alias gl='git log --oneline'
+alias glc="git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50"
+alias gld='git log –oneline –decorate –graph –all'
+alias glp="git log -g --grep='PHP' -10 --pretty='%h - %s - %cn - %cd'"
+alias glf='git for-each-ref --sort=-committerdate'
+alias gpom='git push origin master'
+alias gpod='git push origin develop'
+alias gp='git push'
+
+# Package Management
+alias prg='sudo pacman -Rns $1'
+alias inst='sudo pacman -S $1'
+alias srh='sudo pacman -Ss $1'
+alias rem='sudo pacman -Rns $(pacman -Qdtq)'
+alias updt="sudo pacman -Syu"
+alias upd='sudo pacman -Syy'
+alias upg='sudo pacman -Su'
+
+# Tmux Aliases
+alias tm='tmux'
+alias tml='tmux list-sessions'
+alias tms='tmux new-session -s $1'
+alias tma='tmux attach-session -t $1'
+alias tmd='tmux detach'
+alias tmk='tmux kill-session -t $1'
+
+# Tmuxifier Commands
+alias tmu='tmuxifier'
+alias tmue='tmuxifier es $1'
+alias tmun='tmuxifier ns $1'
+alias tmul='tmuxifier s $1'
+
+# Python and Ruff
+alias python='python3'
+alias rufchk='ruff check $1'
+
+# Weather Information
+ alias weathershort="curl 'wttr.in/$1?format=%l:+%T:+%c:+%p:+%t:+%m\n'"
+ alias weather="curl wttr.in/$1"
+ alias wtreport="curl v2.wttr.in/$1"
+
+# Gemini
+alias qp='gemini -p $1'
+alias qpi='gemini -i $1'
+
+# Drupal and DDEV Aliases
+alias cex='ddev drush cex'
+alias cim='ddev drush cim'
+alias cexy='yes|ddev drush cex'
+alias cimy='yes|ddev drush cim'
+alias dgm='ddev drush generate module'
+alias dws='ddev drush watchdog:show –count=20'
+alias ddc='ddev drush cr'
+alias dpc='ddev drush pmu $1'
+alias dec='ddev drush en -y $1'
+alias dpe='ddev drush pmu $1 && ddev drush cr && ddev drush en -y $1'
+alias dva='ddev drush views:analyze'
+alias dpl='ddev drush pml'
+alias dle="ddev drush pm-list --status='enabled'"
+alias dld="ddev drush pm-list --status='disabled'"
+alias dlo='ddev drush pm-list --type=module --status=enabled --no-core'
+alias ddu='ddev exec drush user-create admin_drupal --mail="admindrupal@admin.es" --password="admin_drupal" && ddev exec drush user-add-role "administrator" admin_drupal && ddev exec drush cr'
+
+# DDEV Commands
+alias dsl='ddev start && ddev launch'
+alias ddy='ddev delete -Oy'
+alias did='ddev import-db'
+alias ddl='ddev list'
+alias dxo='ddev xdebug on'
+alias dxf='ddev xdebug off'
+alias dcr='ddev composer require $@'
+alias dcm='ddev composer remove $@'
+
+# Reviewing Codestyle
+alias dcs1="ddev exec -d=/var/www/html vendor/bin/phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info,txt,md' web/modules/custom/"
+alias dcs2="ddev exec -d=/var/www/html vendor/bin/phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,info,txt,md' web/modules/custom/"
+alias dcsr='ddev exec -d=/var/www/html vendor/bin/phpcs –report=diff'
+
+# Miscellaneous
+
+alias rel_zsh="source ~/.zshrc && source ~/.zsh_aliases"
+
+alias yz="yazi"
+alias ncd="ncdu --color=dark"
+alias n="nvim"
+alias cpy="wl-copy"
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+
+alias youtube-dl='python3 /usr/local/bin/youtube-dl'
+
+alias stop_waydroid="sudo systemctl stop waydroid-container"
+alias start_waydroid="sudo systemctl start waydroid-container"
+alias restart_waydroid="sudo systemctl restart waydroid-container"
+
+alias window_stop="omarchy-windows-vm stop"
+alias window_start="omarchy-windows-vm launch"
+
+alias docker_start="sudo systemctl start docker.service"
+alias docker_stop="sudo systemctl stop docker.service"
+
+alias ex="exit"
