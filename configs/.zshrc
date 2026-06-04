@@ -91,9 +91,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(sudo zsh-autosuggestions zsh-syntax-highlighting \
-  zsh-completions jsontools web-search git docker pip python \
-  archlinux  copydir dirhistory copybuffer zsh_reload \
-  rclone zsh-history-substring-search ufw )
+  jsontools web-search git docker pip python \
+  archlinux  dirhistory copybuffer  \
+  rclone  ufw )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,9 +135,6 @@ export EDITOR=nvim     # or vim, nano, code, etc.
 export MCFLY_RESULTS_SORT=LAST_RUN
 
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fpath+=~/.zsh/zsh-completions
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
 alias luamake="/home/azeemsher/lua-language-server/3rd/luamake/luamake"
@@ -156,9 +153,6 @@ eval "$(zoxide init zsh)"
 export FZF_DEFAULT_COMMAND='find -L . -maxdepth 5 \( -path '\''*/\.*'\'' -o -path '\''*/lib'\'' -o -path '\''*/lib64'\'' -o -path '\''*/lib32'\''  -o -path '\''*/node_modules'\'' -o -fstype '\''dev'\'' -o -fstype '\''proc'\'' \) -prune -o -print 2> /dev/null'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-. "$HOME/.local/share/../bin/env"
-
 
 eval "$(mcfly init zsh)"
 

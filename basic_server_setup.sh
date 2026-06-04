@@ -68,7 +68,7 @@ fi
 
 echo "⚙️ Copying custom configs..."
 cp "$REPO_DIR/configs/.zshrc" "$TARGET_HOME/.zshrc"
-cp "$REPO_DIR/configs/.zsh/" "$TARGET_HOME/.zsh"
+cp -r "$REPO_DIR/configs/.zsh/" "$TARGET_HOME/.zsh"
 cp "$REPO_DIR/configs/zsh_functions.zsh" "$TARGET_HOME/.configs/zsh_functions.zsh"
 cp "$REPO_DIR/configs/.p10k.zsh" "$TARGET_HOME/.p10k.zsh"
 
