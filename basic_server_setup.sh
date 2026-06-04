@@ -19,10 +19,13 @@ sudo apt install -y \
   git \
   curl \
   wget \
+  zoxide \
   unzip \
   build-essential \
   ca-certificates \
   fonts-powerline
+
+snap install mise --classic
 
 echo "✅ Basic packages installed."
 
